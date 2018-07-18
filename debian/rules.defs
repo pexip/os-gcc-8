@@ -1282,8 +1282,10 @@ endif # ifeq (,$(filter $(DEB_STAGE),stage1 stage2))
 
 # Don't include docs with GFDL invariant sections
 GFDL_INVARIANT_FREE := yes
-ifeq ($(derivative),Ubuntu)
-  GFDL_INVARIANT_FREE := no
+ifneq ($(distribution),PexOS)
+  ifeq ($(derivative),Ubuntu)
+    GFDL_INVARIANT_FREE := no
+  endif
 endif
 
 # -------------------------------------------------------------------
