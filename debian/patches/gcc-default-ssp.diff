@@ -187,28 +187,3 @@ Index: b/src/gcc/objcp/lang-specs.h
 -    cc1objplus -fpreprocessed %i %(cc1_options) %2\
 +    cc1objplus -fpreprocessed %i %(cc1_options) %(ssp_default) %2\
      %{!fsyntax-only:%(invoke_as)}}}}", 0, 0, 0},
-Index: b/src/gcc/doc/invoke.texi
-===================================================================
---- a/src/gcc/doc/invoke.texi
-+++ b/src/gcc/doc/invoke.texi
-@@ -10150,6 +10150,9 @@ protection when @option{-fstack-protecti
- The minimum size of variables taking part in stack slot sharing when not
- optimizing. The default value is 32.
- 
-+This default before Ubuntu 10.10 was "8". Currently it is "4", to increase
-+the number of functions protected by the stack protector.
-+
- @item max-jump-thread-duplication-stmts
- Maximum number of statements allowed in a block that needs to be
- duplicated when threading jumps.
-@@ -11154,6 +11157,10 @@ functions with buffers larger than 8 byt
- when a function is entered and then checked when the function exits.
- If a guard check fails, an error message is printed and the program exits.
- 
-+NOTE: In Ubuntu 6.10 and later versions this option is enabled by default
-+for C, C++, ObjC, ObjC++, if none of @option{-fno-stack-protector},
-+@option{-nostdlib}, nor @option{-ffreestanding} are found.
-+
- @item -fstack-protector-all
- @opindex fstack-protector-all
- Like @option{-fstack-protector} except that all functions are protected.

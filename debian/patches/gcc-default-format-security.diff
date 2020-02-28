@@ -1,21 +1,5 @@
 # DP: Turn on -Wformat -Wformat-security by  default for C, C++, ObjC, ObjC++.
 
-Index: b/src/gcc/doc/invoke.texi
-===================================================================
---- a/src/gcc/doc/invoke.texi
-+++ b/src/gcc/doc/invoke.texi
-@@ -4119,6 +4119,11 @@ value is used and that might result in t
- sufficient length or magnitude.
- @end table
- 
-+NOTE: In Ubuntu 8.10 and later versions this option is enabled by default
-+for C, C++, ObjC, ObjC++.  To disable, use @option{-Wno-format-security},
-+or disable all format warnings with @option{-Wformat=0}.  To make format
-+security warnings fatal, specify @option{-Werror=format-security}.
-+
- @item -Wformat-y2k
- @opindex Wformat-y2k
- @opindex Wno-format-y2k
 Index: b/src/gcc/gcc.c
 ===================================================================
 --- a/src/gcc/gcc.c

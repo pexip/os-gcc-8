@@ -6,23 +6,6 @@
  gcc/c-family/c-cppbuiltin.c  |    3 +
  2 files changed, 9 insertions(+), 0 deletions(-)
 
-Index: b/src/gcc/doc/invoke.texi
-===================================================================
---- a/src/gcc/doc/invoke.texi
-+++ b/src/gcc/doc/invoke.texi
-@@ -7105,6 +7105,12 @@ also turns on the following optimization
- Please note the warning under @option{-fgcse} about
- invoking @option{-O2} on programs that use computed gotos.
- 
-+NOTE: In Ubuntu 8.10 and later versions, @option{-D_FORTIFY_SOURCE=2} is
-+set by default, and is activated when @option{-O} is set to 2 or higher.
-+This enables additional compile-time and run-time checks for several libc
-+functions.  To disable, specify either @option{-U_FORTIFY_SOURCE} or
-+@option{-D_FORTIFY_SOURCE=0}.
-+
- @item -O3
- @opindex O3
- Optimize yet more.  @option{-O3} turns on all optimizations specified
 Index: b/src/gcc/c-family/c-cppbuiltin.c
 ===================================================================
 --- a/src/gcc/c-family/c-cppbuiltin.c

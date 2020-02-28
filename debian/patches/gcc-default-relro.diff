@@ -5,20 +5,6 @@
  gcc/gcc.c           |    1 +
  2 files changed, 4 insertions(+), 0 deletions(-)
 
-Index: b/src/gcc/doc/invoke.texi
-===================================================================
---- a/src/gcc/doc/invoke.texi
-+++ b/src/gcc/doc/invoke.texi
-@@ -11813,6 +11813,9 @@ For example, @option{-Wl,-Map,output.map
- linker.  When using the GNU linker, you can also get the same effect with
- @option{-Wl,-Map=output.map}.
- 
-+NOTE: In Ubuntu 8.10 and later versions, for LDFLAGS, the option
-+@option{-Wl,-z,relro} is used.  To disable, use @option{-Wl,-z,norelro}.
-+
- @item -u @var{symbol}
- @opindex u
- Pretend the symbol @var{symbol} is undefined, to force linking of
 Index: b/src/gcc/gcc.c
 ===================================================================
 --- a/src/gcc/gcc.c
