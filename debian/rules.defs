@@ -1258,6 +1258,9 @@ else ifeq ($(distribution),Ubuntu)
     pie_archs += armhf arm64 i386
   endif
 endif
+ifeq ($(distribution),PexOS)
+  pie_archs = amd64
+endif
 ifneq (,$(filter $(DEB_TARGET_ARCH),$(pie_archs)))
   with_pie := yes
 endif
