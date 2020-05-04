@@ -1261,6 +1261,9 @@ endif
 ifeq ($(distribution),PexOS)
   pie_archs = amd64
 endif
+ifeq ($(distribution),Pexos)
+  pie_archs = amd64
+endif
 ifneq (,$(filter $(DEB_TARGET_ARCH),$(pie_archs)))
   with_pie := yes
 endif
@@ -1285,9 +1288,11 @@ endif # ifeq (,$(filter $(DEB_STAGE),stage1 stage2))
 
 # Don't include docs with GFDL invariant sections
 GFDL_INVARIANT_FREE := yes
-ifneq ($(distribution),PexOS)
-  ifeq ($(derivative),Ubuntu)
-    GFDL_INVARIANT_FREE := no
+ifneq ($(distribution),Pexos)
+  ifneq ($(distribution),PexOS)
+    ifeq ($(derivative),Ubuntu)
+      GFDL_INVARIANT_FREE := no
+    endif
   endif
 endif
 
