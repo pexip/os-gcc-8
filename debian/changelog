@@ -1,3 +1,12 @@
+gcc-8 (8.3.0-6pexip3) pexip; urgency=medium
+
+  * Fix up multiple parallel-build issues
+    + Make the debian/dh_* scripts executable before they're used
+    + Do the packaging steps single-threaded, as they're unsafe in
+      parallel
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Thu, 23 Jul 2020 15:38:46 +0100
+
 gcc-8 (8.3.0-6pexip2) pexip; urgency=medium
 
   * Rebuild in buster environment

@@ -27,7 +27,7 @@ control: $(control_dependencies)
 configure: control $(unpack_stamp) $(patch_stamp)
 	$(MAKE) -f debian/rules2 $@
 
-pre-build:
+pre-build: debian-chmod
 #ifneq (,$(filter $(distrelease),squeeze sid))
 #ifeq (,$(filter $(DEB_TARGET_ARCH),amd64 i386))
 #	@echo explicitely fail the build for $(DEB_TARGET_ARCH)
@@ -61,13 +61,13 @@ clean:
 	dh_clean
 
 install:
-	$(MAKE) -f debian/rules2 $@
+	$(MAKE) -j 1 -f debian/rules2 $@
 
 html-docs doxygen-docs update-doxygen-docs update-ada-files xxx:
-	$(MAKE) -f debian/rules2 $@
+	$(MAKE) -j 1 -f debian/rules2 $@
 
 binary-indep binary-arch binary:
-	$(MAKE) -f debian/rules2 $@
+	$(MAKE) -j1 -f debian/rules2 $@
 
 source diff:
 	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false

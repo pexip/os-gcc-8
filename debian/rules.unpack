@@ -23,7 +23,7 @@ $(unpack_stamp): $(foreach p,$(debian_tarballs),unpacked-$(p))
 	mv -f pxxx $@
 
 debian-chmod:
-	@chmod 755 debian/dh_*
+	chmod 755 debian/dh_*
 
 # ---------------------------------------------------------------------------
 
